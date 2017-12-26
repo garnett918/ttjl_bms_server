@@ -10,6 +10,7 @@ var cors = require('cors');
 var routes = require('./routes/index');
 var users = require('./routes/users');
 var news = require('./routes/news');
+var fixedasset = require('./routes/fixedasset');
 
 var app = express();
 
@@ -30,6 +31,7 @@ app.use(utils.basicAuth('admin', '111111'));
 app.use('/', routes);
 app.use('/users', users);
 app.use('/news', news);
+app.use('/fixedasset', fixedasset);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
