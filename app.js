@@ -11,6 +11,7 @@ var routes = require('./routes/index');
 var users = require('./routes/users');
 var news = require('./routes/news');
 var fixedasset = require('./routes/fixedasset');
+var spaceregion = require('./routes/spaceregion');
 
 var app = express();
 
@@ -32,6 +33,7 @@ app.use('/', routes);
 app.use('/users', users);
 app.use('/news', news);
 app.use('/fixedasset', fixedasset);
+app.use('/spaceregion', spaceregion);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -9,7 +9,7 @@ var connection = mysql.createConnection({
   useConnectionPooling: true
 });
 
-var PAGE_SIZE=5;
+var PAGE_SIZE=12;
 
 
 router.get('/', function(req, res) {
@@ -21,17 +21,17 @@ router.get('/', function(req, res) {
     var limit = PAGE_SIZE;
     var offset = PAGE_SIZE*(page-1);
 
-    var sqlstr = 'SELECT * FROM fixedasset';
+    var sqlstr = 'SELECT * FROM spaceregion';
     if(search !== null || search !== undefined || search !== '')
     {
-      sqlstr = sqlstr + " WHERE faname LIKE '%"+search+"%'";
+      sqlstr = sqlstr + " WHERE srname LIKE '%"+search+"%'";
     }
 
     sqlstr = sqlstr + ' LIMIT '+offset+','+limit;
-    var countstr = 'SELECT count(*) AS count FROM fixedasset';
+    var countstr = 'SELECT count(*) AS count FROM spaceregion';
     if(search !== null || search !== undefined || search !== '')
     {
-      countstr = countstr + " WHERE faname LIKE '%"+search+"%'";
+      countstr = countstr + " WHERE srname LIKE '%"+search+"%'";
     }
     var total_count_all = 0;
     connection.query(countstr, function(err, rows, fields) {
